@@ -7,6 +7,10 @@ Conversor of binary numbers to decimal numbers
 - [x] Vue 3
 - [x] Windi CSS
 
+## Available In
+
+https://bin2dec-vue3.vercel.app/
+
 ## Project setup
 ```
 npm install
