@@ -2,7 +2,7 @@
 
 Conversor of binary numbers to decimal numbers
 
-## Tecnologies
+## Technologies
 
 - [x] Vue 3
 - [x] Windi CSS
