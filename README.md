@@ -1,4 +1,11 @@
-# bin2dec-vue3
+#  Binary to Decimal Converter
+
+Conversor of binary numbers to decimal numbers
+
+## Tecnologias Utilizadas
+
+- [x] Vue 3
+- [x] Windi CSS
 
 ## Project setup
 ```
