@@ -1,14 +1,14 @@
 <template>
-  <Binary />
+  <BinaryTemplate />
 </template>
 
-<script>
-import Binary from './components/Binary.vue'
+<script lang="js">
+import BinaryTemplate from '@/components/templates/BinaryTemplate'
 
 export default {
   name: 'App',
   components: {
-    Binary,
+    BinaryTemplate,
   },
 }
 </script>
