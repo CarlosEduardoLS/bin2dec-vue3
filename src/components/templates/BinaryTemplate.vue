@@ -4,12 +4,13 @@
       <GradientTitle title="Binary to Decimal" />
 
       <div>
-        <input
+        <!-- <input
           v-model="binary"
           class="p-2 binary-input m-5"
           @keydown.enter="bin2Dec(binary)"
-        />
-        <!-- <TextInput :value="binary" @keydown.enter="bin2Dec(binary)" /> -->
+        /> -->
+
+        <TextInput :value="binary" @keydown="bin2Dec(binary)" />
 
         <PrimaryButton text="convert" @click="bin2Dec(binary)" />
       </div>
@@ -27,6 +28,7 @@ import { ref } from '@vue/reactivity'
 import GradientTitle from '@/components/atoms/GradientTitle'
 import PrimaryButton from '@/components/atoms/PrimaryButton'
 import TextSpan from '@/components/atoms/TextSpan'
+import TextInput from '@/components/atoms/TextInput'
 import FlexTable from '@/components/bosons/FlexTable'
 
 export default {
@@ -34,6 +36,7 @@ export default {
     GradientTitle,
     PrimaryButton,
     TextSpan,
+    TextInput,
     FlexTable,
   },
   name: 'BinaryTemplate',
