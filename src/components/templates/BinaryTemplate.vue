@@ -3,17 +3,10 @@
     <div class="text-center">
       <GradientTitle title="Binary to Decimal" />
 
-      <div>
-        <!-- <input
-          v-model="binary"
-          class="p-2 binary-input m-5"
-          @keydown.enter="bin2Dec(binary)"
-        /> -->
-
-        <TextInput :value="binary" @keydown="bin2Dec(binary)" />
-
-        <PrimaryButton text="convert" @click="bin2Dec(binary)" />
-      </div>
+      <form @submit.prevent="bin2Dec">
+        <TextInput v-model="binary" />
+        <PrimaryButton text="convert" />
+      </form>
 
       <TextSpan :text="error" />
       <TextSpan v-if="result" :text="`Decimal: ${result}`" />
@@ -47,20 +40,20 @@ export default {
     let resolution = ref([])
     const headers = ['Binário', 'Operação', 'Expoente', 'Resultado']
 
-    function bin2Dec(binary) {
+    function bin2Dec() {
       this.result = 0
       this.error = ''
       this.resolution = []
 
-      if (/[^0-1]/.test(binary)) {
+      if (/[^0-1]/.test(binary.value)) {
         this.error =
           'Numero Inválido! Por favor, insira somente números binários (0 ou 1)'
 
         return
       }
 
-      binary.split('').forEach((number, ix) => {
-        const expo = binary.length - (ix + 1)
+      binary.value.split('').forEach((number, ix) => {
+        const expo = binary.value.length - (ix + 1)
         const result = +number * Math.pow(2, expo)
         this.resolution.push({ number, expo, result })
         this.result += result
