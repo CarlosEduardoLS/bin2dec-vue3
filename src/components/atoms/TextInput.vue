@@ -1,44 +1,23 @@
 <template>
-  <input
-    :value="value"
-    class="p-2 binary-input m-5"
-    @input="updateValue"
-    @keydown.enter="changeHandler"
-  />
+  <input :value="modelValue" class="p-2 binary-input m-5" @input="updateValue" />
 </template>
 
 <script lang="js">
-import { computed } from '@vue/reactivity'
-
 export default {
   name: 'TextInput',
-  emits: ['input', 'keydown'],
+  emits: ['update:modelValue'],
   props: {
-    value: {
-      type: String,
+    modelValue: {
+      type: [String,Number],
       required: true
     },
   },
   setup(props, { emit }) {
-    const val = computed({
-      get: () => props.value,
-      set: v => {
-        console.log('V -> ', v)
-        emit('input', v)
-      }
-    })
-
     function updateValue(v) {
-      emit('input', v.data)
-    }
-
-    function changeHandler() {
-      emit('keydown', props.value)
+      emit('update:modelValue', v.target.value)
     }
 
     return {
-      val,
-      changeHandler,
       updateValue
     }
   },
